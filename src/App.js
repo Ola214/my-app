@@ -6,10 +6,10 @@ class App extends Component {
 
   state = {
     articles: [
-      {title: "title1", content: "This is content 1"},
-      {title: "title2", content: "This is content 2"},
-      {title: "title3", content: "This is content 3"},
-      {title: "title4", content: "This is content 3"}
+      {id: 'ssdw12', title: "title1", content: "This is content 1"},
+      {id: 'ss2dw12', title: "title2", content: "This is content 2"},
+      {id: 'ssedw12', title: "title3", content: "This is content 3"},
+      {id: 'ssddw12', title: "title4", content: "This is content 3"}
     ],
     showArticles: false
   }
@@ -30,7 +30,12 @@ class App extends Component {
     let articles = null;
     if(this.state.showArticles){
       articles = this.state.articles.map((article, index) =>{
-        return(<Article title={article.title} content={article.content} deleteClick={() => this.deleteArticleHandler(index)}/>);
+        return(<Article 
+          title={article.title} 
+          content={article.content} 
+          deleteClick={() => this.deleteArticleHandler(index)}
+          key={article.id}
+          />);
       });
     }
     //kod jsx

@@ -14,6 +14,22 @@ class App extends Component {
     active: true
   }
 
+  setUserDataHandler = () => {
+    console.log("triggering setUserDataHandler");
+    const username = document.getElementById("username").value;
+    const role = document.getElementById("role").value;
+    const active = document.getElementById("active").checked;
+
+    this.setState(
+      {
+        username: username,
+        role: role,
+        active: active
+      }
+    );
+
+  }
+
   render() {
 
     //kod jsx
@@ -31,7 +47,8 @@ class App extends Component {
           <input className="Form-element" type="text" id="role" />
           <label className="Form-label">Active</label>
           <input className="Form-element" type="checkbox" id="active" />
-          <button className="Form-button">Show user</button>
+          {/* metoda bez nawiasow okrągłych, metoda będzie wykonywana za każdym razem kiedy react będzie renderował tego jsx'a */}
+          <button onClick={this.setUserDataHandler} className="Form-button">Show user</button>
         </div>
         <User username={this.state.username} role={this.state.role}>{this.state.active ? this.active : this.inactive}</User>
       </div>

@@ -20,7 +20,8 @@ class App extends Component {
   }
 
   deleteArticleHandler = (articleIndex) => {
-    const articles = this.state.articles;
+    // const articles = this.state.articles.slice();
+    const articles = [...this.state.articles];
     articles.splice(articleIndex,1); //jeden element usuwasz
     this.setState({articles: articles});
   }

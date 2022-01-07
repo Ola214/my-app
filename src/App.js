@@ -13,8 +13,8 @@ class App extends Component {
       <div className="App">
         <h1 className='Red-color'>Hello, I am a react App</h1>
         <p>Paragraf tekstowy</p>
-        <User />
-        <User />
+        <User username="Szymon1" role="admin">active</User>
+        <User username="FooBar" role="user">inactive</User>
       </div>
     );
   }

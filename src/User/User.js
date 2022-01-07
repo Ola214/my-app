@@ -16,6 +16,8 @@ const user = (props) => {
 
     // return <h2>I am a user, current hour is {hour + ':' + minute + ':' + second}</h2>
     return <div>
+            {/* metoda bez nawiasow okrągłych, metoda będzie wykonywana za każdym razem kiedy react będzie renderował tego jsx'a */}
+            <button onClick={props.buttonClick} className="Form-button">Show user</button>
             <h2>Username: {props.username}</h2>
             <h3>Role: {props.role}</h3>
             <p>State: {props.children}</p>

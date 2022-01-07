@@ -1,47 +1,24 @@
 import React, {Component} from 'react';
 import './App.css'
-import User from './User/User'
-import Customer from './Customer/Customer'
+import Article from './Article/Article'
 
 class App extends Component {
 
-
-  active = "Active";
-  inactive = "Inactive";
-
   state = {
-    username: "Szymon1",
-    role: "admin",
-    active: true
+    articles: [
+      {title: "title1", content: "This is content 1"},
+      {title: "title2", content: "This is content 2"},
+      {title: "title3", content: "This is content 3"}
+    ],
+    showArticles: false
   }
 
-  onCopyHandler = () => {
-    console.log("onCopyHandler");
+  toggleArticlesHandler = () => {
+    const doesShow = this.state.showArticles;
+    this.setState({showArticles: !doesShow});
   }
 
-  onMouseEnter = () => {
-    console.log("onMouseEnter");
-  }
 
-  onMouseLeave = () => {
-    console.log("onMouseLeave");
-  }
-
-  setUserDataHandler = () => {
-    console.log("triggering setUserDataHandler");
-    const username = document.getElementById("username").value;
-    const role = document.getElementById("role").value;
-    const active = document.getElementById("active").checked;
-
-    this.setState(
-      {
-        username: username,
-        role: role,
-        active: active
-      }
-    );
-
-  }
 
   render() {
 
@@ -51,20 +28,14 @@ class App extends Component {
       // React.createElement('div', null, React.createElement('h1', {className: 'Red-color'}, 'Hello, I am react App')) //typ, obiekt,potomek rodzica
 
       <div className="App">
-        <h1 className='Red-color' onCopy={this.onCopyHandler} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>Hello, I am a react App</h1>
-        <p>Paragraf tekstowy</p>
-        <div className="Form-container">
-          <label className="Form-label">Username</label>
-          <input className="Form-element" type="text" id="username" />
-          <label className="Form-label">Role</label>
-          <input className="Form-element" type="text" id="role" />
-          <label className="Form-label">Active</label>
-          <input className="Form-element" type="checkbox" id="active" />
-
- 
-        </div>
-        <User username={this.state.username} role={this.state.role} buttonClick={() => this.setUserDataHandler()}>{this.state.active ? this.active : this.inactive}</User>
-        <Customer />
+        <button onClick={this.toggleArticlesHandler}>Toggle articles</button>
+        {this.state.showArticles ? 
+          <div>
+            <Article title={this.state.articles[0].title} content={this.state.articles[0].content}/>
+            <Article title={this.state.articles[1].title} content={this.state.articles[1].content}/>
+            <Article title={this.state.articles[2].title} content={this.state.articles[2].content}/>
+          </div> : null
+        }
       </div>
     );
   }

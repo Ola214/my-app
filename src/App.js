@@ -14,6 +14,18 @@ class App extends Component {
     active: true
   }
 
+  onCopyHandler = () => {
+    console.log("onCopyHandler");
+  }
+
+  onMouseEnter = () => {
+    console.log("onMouseEnter");
+  }
+
+  onMouseLeave = () => {
+    console.log("onMouseLeave");
+  }
+
   setUserDataHandler = () => {
     console.log("triggering setUserDataHandler");
     const username = document.getElementById("username").value;
@@ -38,7 +50,7 @@ class App extends Component {
       // React.createElement('div', null, React.createElement('h1', {className: 'Red-color'}, 'Hello, I am react App')) //typ, obiekt,potomek rodzica
 
       <div className="App">
-        <h1 className='Red-color'>Hello, I am a react App</h1>
+        <h1 className='Red-color' onCopy={this.onCopyHandler} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>Hello, I am a react App</h1>
         <p>Paragraf tekstowy</p>
         <div className="Form-container">
           <label className="Form-label">Username</label>

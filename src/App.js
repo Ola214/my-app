@@ -3,6 +3,17 @@ import './App.css'
 import User from './User/User'
 
 class App extends Component {
+
+
+  active = "Active";
+  inactive = "Inactive";
+
+  state = {
+    username: "Szymon1",
+    role: "admin",
+    active: true
+  }
+
   render() {
 
     //kod jsx
@@ -22,6 +33,7 @@ class App extends Component {
           <input className="Form-element" type="checkbox" id="active" />
           <button className="Form-button">Show user</button>
         </div>
+        <User username={this.state.username} role={this.state.role}>{this.state.active ? this.active : this.inactive}</User>
       </div>
     );
   }

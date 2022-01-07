@@ -40,3 +40,26 @@
 .Red-color {
   color: red;
 }
+
+.Form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.Form-label {
+  font-weight: bold;
+  margin: auto;
+  margin-bottom: 2px;
+}
+
+.Form-element {
+  width: 400px;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+.Form-button {
+  margin: auto;
+  min-width: 150px;
+  margin-top: 10px;
+}

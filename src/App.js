@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css'
 import Article from './Article/Article'
+import Radium from 'radium';
 
 class App extends Component {
 
@@ -37,7 +38,12 @@ class App extends Component {
       fontSize: '20px',
       cursor: 'pointer',
       marginTop: '10px',
-      marginBottom: '10px'
+      marginBottom: '10px',
+      transitionDuration: '0.4s',
+      ':hover': {
+        backgroundColor: '#326647',
+        color: 'white'
+      }
     };
 
     let articles = null;
@@ -52,6 +58,11 @@ class App extends Component {
           />);
       });
       buttonStyle.border = '2px solid red';
+      buttonStyle.transitionDuration = '0.4s';
+      buttonStyle[':hover'] = {
+        backgroundColor: 'red',
+        color: 'white'
+      }
     }
 
     //let articleStyles = ['OrangeArticles','OneArticle'].join(' '); //łączenie elementów tabilcy w jednego stringa oddzielonego spacją
@@ -88,4 +99,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);

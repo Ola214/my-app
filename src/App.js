@@ -53,6 +53,21 @@ class App extends Component {
       });
       buttonStyle.border = '2px solid red';
     }
+
+    //let articleStyles = ['OrangeArticles','OneArticle'].join(' '); //łączenie elementów tabilcy w jednego stringa oddzielonego spacją
+
+    const articleStyles = [];
+
+    if(this.state.articles.length === 1){
+      articleStyles.push('OneArticle');
+    }
+
+    if(this.state.articles.length >= 4) {
+      articleStyles.push('GreenArticles');
+    } else {
+      articleStyles.push('OrangeArticles');
+    }
+
     //kod jsx
     return (
       // //inny sposób tworzenia zawartości komponentu
@@ -63,7 +78,10 @@ class App extends Component {
           style={buttonStyle} 
           onClick={this.toggleArticlesHandler}>
           Toggle articles</button>
-        {articles}
+        <div className={articleStyles.join(' ')}>
+          {articles}
+        </div>
+        
       </div>
       
     );

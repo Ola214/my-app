@@ -28,7 +28,7 @@ class App extends Component {
 
   render() {
 
-    const buttonStyles = {
+    const buttonStyle = {
       backgroundColor: 'white',
       border: '2px solid #326647',
       color: 'black',
@@ -41,6 +41,7 @@ class App extends Component {
     };
 
     let articles = null;
+
     if(this.state.showArticles){
       articles = this.state.articles.map((article, index) =>{
         return(<Article 
@@ -50,6 +51,7 @@ class App extends Component {
           key={article.id}
           />);
       });
+      buttonStyle.border = '2px solid red';
     }
     //kod jsx
     return (
@@ -58,7 +60,7 @@ class App extends Component {
 
       <div className="App">
         <button 
-          style={buttonStyles} 
+          style={buttonStyle} 
           onClick={this.toggleArticlesHandler}>
           Toggle articles</button>
         {articles}

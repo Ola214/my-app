@@ -21,7 +21,14 @@ class App extends Component {
 
 
   render() {
-
+    let articles = null;
+    if(this.state.showArticles){
+      articles = <div>
+        <Article title={this.state.articles[0].title} content={this.state.articles[0].content}/>
+        <Article title={this.state.articles[1].title} content={this.state.articles[1].content}/>
+        <Article title={this.state.articles[2].title} content={this.state.articles[2].content}/>
+      </div>
+      }
     //kod jsx
     return (
       // //inny sposób tworzenia zawartości komponentu
@@ -29,14 +36,9 @@ class App extends Component {
 
       <div className="App">
         <button onClick={this.toggleArticlesHandler}>Toggle articles</button>
-        {this.state.showArticles ? 
-          <div>
-            <Article title={this.state.articles[0].title} content={this.state.articles[0].content}/>
-            <Article title={this.state.articles[1].title} content={this.state.articles[1].content}/>
-            <Article title={this.state.articles[2].title} content={this.state.articles[2].content}/>
-          </div> : null
-        }
+        {articles}
       </div>
+      
     );
   }
 }

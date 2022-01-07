@@ -27,6 +27,19 @@ class App extends Component {
   }
 
   render() {
+
+    const buttonStyles = {
+      backgroundColor: 'white',
+      border: '2px solid #326647',
+      color: 'black',
+      padding: '10px 16px',
+      textAlign: 'center',
+      fontSize: '20px',
+      cursor: 'pointer',
+      marginTop: '10px',
+      marginBottom: '10px'
+    };
+
     let articles = null;
     if(this.state.showArticles){
       articles = this.state.articles.map((article, index) =>{
@@ -44,7 +57,10 @@ class App extends Component {
       // React.createElement('div', null, React.createElement('h1', {className: 'Red-color'}, 'Hello, I am react App')) //typ, obiekt,potomek rodzica
 
       <div className="App">
-        <button onClick={this.toggleArticlesHandler}>Toggle articles</button>
+        <button 
+          style={buttonStyles} 
+          onClick={this.toggleArticlesHandler}>
+          Toggle articles</button>
         {articles}
       </div>
       

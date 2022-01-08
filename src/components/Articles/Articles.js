@@ -11,7 +11,11 @@ class Articles extends Component {
 
   shouldComponentUpdate(nextProps, nextState){
     console.log("Articles shouldComponentUpdate");
-    return true;
+    if(nextProps.articles !== this.props.articles){ //!== nie != -> porównianie elementów, nie referencji
+      return true;
+    } else {
+      return false; //jeżeli artykuły się nie zmieniły to nie renderuj
+    }
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState){

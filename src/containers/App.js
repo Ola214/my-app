@@ -5,8 +5,18 @@ import Header from '../components/Header/Header';
 
 class App extends Component {
 
-  //po metodzie constrctor i getDerived.. jest wywoływana funcja render
+  state = {
+    articles: [
+      {id: 'ssdw12', title: "title1", content: "This is content 1"},
+      {id: 'ss2dw12', title: "title2", content: "This is content 2"},
+      {id: 'ssedw12', title: "title3", content: "This is content 3"},
+      {id: 'ssddw12', title: "title4", content: "This is content 3"}
+    ],
+    showArticles: false,
+    showSeconds: false
+  }
 
+  //po metodzie constrctor i getDerived.. jest wywoływana funcja render
   constructor(props){
     console.log("App constructor");
     super(props);
@@ -34,14 +44,9 @@ class App extends Component {
     console.log("App componentDidMount");
   }
 
-  state = {
-    articles: [
-      {id: 'ssdw12', title: "title1", content: "This is content 1"},
-      {id: 'ss2dw12', title: "title2", content: "This is content 2"},
-      {id: 'ssedw12', title: "title3", content: "This is content 3"},
-      {id: 'ssddw12', title: "title4", content: "This is content 3"}
-    ],
-    showArticles: false
+  toggleSecondsHandler = () => {
+    const areSecondsVisible = this.state.showSeconds;
+    this.setState({showSeconds: !areSecondsVisible});
   }
 
   toggleArticlesHandler = () => {
@@ -59,14 +64,23 @@ class App extends Component {
     console.log("App render");
 
     let articles = null;
+    let seconds = null;
+
+    if(this.state.showSeconds){
+      const now = new Date();
+      seconds = <h1>{now.getSeconds()}</h1>
+    }
+
+
     if(this.state.showArticles) {
       articles = <Articles articles={this.state.articles} deleteArticle={this.deleteArticleHandler} />
     }
 
     //kod jsx
     return (
-        
         <div className="App">
+          <button onClick={this.toggleSecondsHandler}>Toggle seconds</button>
+          {seconds}
           <Header showArticles={this.state.showArticles} toggleArticles={this.toggleArticlesHandler}/>
           {articles}
         </div>

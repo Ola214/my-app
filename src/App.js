@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css'
 import Article from './Article/Article'
-import Radium from 'radium';
+import Radium, {StyleRoot} from 'radium';
 
 class App extends Component {
 
@@ -83,17 +83,17 @@ class App extends Component {
     return (
       // //inny sposób tworzenia zawartości komponentu
       // React.createElement('div', null, React.createElement('h1', {className: 'Red-color'}, 'Hello, I am react App')) //typ, obiekt,potomek rodzica
-
-      <div className="App">
-        <button 
-          style={buttonStyle} 
-          onClick={this.toggleArticlesHandler}>
-          Toggle articles</button>
-        <div className={articleStyles.join(' ')}>
-          {articles}
+      <StyleRoot>
+        <div className="App">
+          <button 
+            style={buttonStyle} 
+            onClick={this.toggleArticlesHandler}>
+            Toggle articles</button>
+          <div className={articleStyles.join(' ')}>
+            {articles}
+          </div>
         </div>
-        
-      </div>
+      </StyleRoot>
       
     );
   }

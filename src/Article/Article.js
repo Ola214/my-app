@@ -18,11 +18,11 @@ const StyledDiv = styled.div`
 
 const article = props => {
 
-    const style = {
-        '@media (min-width: 900px)': {
-            width: '630px'
-        }
-    }
+    // const style = {
+    //     '@media (min-width: 900px)': {
+    //         width: '630px'
+    //     }
+    // }
 
     return(
         //<div className="Article" style={style}>

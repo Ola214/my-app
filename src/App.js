@@ -1,6 +1,25 @@
 import React, {Component} from 'react';
 import './App.css'
 import Article from './Article/Article'
+import styled from 'styled-components'
+
+
+const StyledButton = styled.div`
+  background-color: white;
+  border: 2px solid #326647;
+  color: black;
+  padding: 10px 16px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition-duration: 0.4s;
+  &:hover {
+    background-color: #326647;
+    color: white;
+  }
+`;
 
 class App extends Component {
 
@@ -27,23 +46,6 @@ class App extends Component {
   }
 
   render() {
-
-    const buttonStyle = {
-      backgroundColor: 'white',
-      border: '2px solid #326647',
-      color: 'black',
-      padding: '10px 16px',
-      textAlign: 'center',
-      fontSize: '20px',
-      cursor: 'pointer',
-      marginTop: '10px',
-      marginBottom: '10px',
-      transitionDuration: '0.4s',
-      ':hover': {
-        backgroundColor: '#326647',
-        color: 'white'
-      }
-    };
 
     let articles = null;
 
@@ -83,10 +85,9 @@ class App extends Component {
       // //inny sposób tworzenia zawartości komponentu
       // React.createElement('div', null, React.createElement('h1', {className: 'Red-color'}, 'Hello, I am react App')) //typ, obiekt,potomek rodzica
         <div className="App">
-          <button 
-            style={buttonStyle} 
+          <StyledButton 
             onClick={this.toggleArticlesHandler}>
-            Toggle articles</button>
+            Toggle articles</StyledButton>
           <div className={articleStyles.join(' ')}>
             {articles}
           </div>

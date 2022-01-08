@@ -6,7 +6,12 @@ const Header = props => {
     //po każdym renderowaniu komponentu didMount i didUpdate
     useEffect(() => {
         console.log("Header useEffect");
-    });
+
+        //wywoływanie funkcji jako pierwszy parametr po czasie określonym w drugim parametrze ms
+        setTimeout(() => {
+            console.log("http request is done");
+        }, 1500);
+    },[props.showArticles]); //drugi parametr opcjonalny - wszyskie zmiany w zmiennych które wywoływują tą funcję - jak jest pusta to wykona się tylko raz podczas tworzenia komponentu
 
 
     let buttonStyles = [styles.toggleButton];

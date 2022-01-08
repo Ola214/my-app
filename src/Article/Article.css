@@ -1,4 +1,4 @@
-.Article {
+/* .Article {
     width: 70%;
     margin: auto;
     border: 1px solid #dddddd;
@@ -8,7 +8,7 @@
     margin-bottom: 10px;
 }
 
-/* @media (min-width: 900px) {
+@media (min-width: 900px) {
     .Article {
         width: 630px;
     }

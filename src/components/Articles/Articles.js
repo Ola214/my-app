@@ -15,7 +15,7 @@ const articles = props => {
       articleStyles.push('OrangeArticles');
     }
 
-    const articles = props.state.articles.map((article, index) =>{
+    const articles = props.articles.map((article, index) =>{
         return(<Article 
           title={article.title} 
           content={article.content} 

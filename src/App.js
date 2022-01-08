@@ -4,7 +4,7 @@ import Article from './Article/Article'
 import styled from 'styled-components'
 
 
-const StyledButton = styled.div`
+const StyledButton = styled.button`
   background-color: white;
   border: ${props => props.altButton ? '2px solid red' : '2px solid #326647}'};
   color: black;

@@ -3,7 +3,7 @@ import styles from './Header.module.css';
 
 const Header = props => {
 
-    //po każdym renderowaniu komponentu
+    //po każdym renderowaniu komponentu didMount i didUpdate
     useEffect(() => {
         console.log("Header useEffect");
     });

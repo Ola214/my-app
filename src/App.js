@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 const StyledButton = styled.div`
   background-color: white;
-  border: 2px solid #326647;
+  border: ${props => props.altButton ? '2px solid red' : '2px solid #326647}'};
   color: black;
   padding: 10px 16px;
   text-align: center;
@@ -16,7 +16,7 @@ const StyledButton = styled.div`
   margin-bottom: 10px;
   transition-duration: 0.4s;
   &:hover {
-    background-color: #326647;
+    background-color: ${props => props.altButton ? 'red' : '#326647'};
     color: white;
   }
 `;
@@ -58,12 +58,6 @@ class App extends Component {
           key={article.id}
           />);
       });
-      buttonStyle.border = '2px solid red';
-      buttonStyle.transitionDuration = '0.4s';
-      buttonStyle[':hover'] = {
-        backgroundColor: 'red',
-        color: 'white'
-      }
     }
 
     //let articleStyles = ['OrangeArticles','OneArticle'].join(' '); //łączenie elementów tabilcy w jednego stringa oddzielonego spacją
@@ -86,6 +80,7 @@ class App extends Component {
       // React.createElement('div', null, React.createElement('h1', {className: 'Red-color'}, 'Hello, I am react App')) //typ, obiekt,potomek rodzica
         <div className="App">
           <StyledButton 
+            altButton={this.state.showArticles}
             onClick={this.toggleArticlesHandler}>
             Toggle articles</StyledButton>
           <div className={articleStyles.join(' ')}>

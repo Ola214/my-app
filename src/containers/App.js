@@ -8,20 +8,30 @@ class App extends Component {
   //po metodzie constrctor i getDerived.. jest wywoływana funcja render
 
   constructor(props){
-    console.log("constructor");
+    console.log("App constructor");
     super(props);
   }
 
   //
   static getDerivedStateFromProps(props, state){
-    console.log("getDerivedStateFromProps")
+    console.log("App getDerivedStateFromProps")
     return state;
+  }
+
+  componentDidUpdate() {
+    console.log("App componentDidUpdate");
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    console.log("App shouldComponentUpdate");
+    return true;
+
   }
 
   componentDidMount() {
     //puszczanie zapytań http itp.
     //nie aktualizuj tutaj state synchronicznie
-    console.log("componentDidMount");
+    console.log("App componentDidMount");
   }
 
   state = {
@@ -46,7 +56,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("render");
+    console.log("App render");
 
     let articles = null;
     if(this.state.showArticles) {

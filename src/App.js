@@ -1,25 +1,7 @@
 import React, {Component} from 'react';
-import './App.css'
-import Article from './Article/Article'
-import styled from 'styled-components'
-
-
-const StyledButton = styled.button`
-  background-color: white;
-  border: ${props => props.altButton ? '2px solid red' : '2px solid #326647}'};
-  color: black;
-  padding: 10px 16px;
-  text-align: center;
-  font-size: 20px;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  transition-duration: 0.4s;
-  &:hover {
-    background-color: ${props => props.altButton ? 'red' : '#326647'};
-    color: white;
-  }
-`;
+import './App.css';
+import Article from './Article/Article';
+import styles from './App.module.css'
 
 class App extends Component {
 
@@ -48,6 +30,7 @@ class App extends Component {
   render() {
 
     let articles = null;
+    let buttonStyles = [styles.toggleButton];
 
     if(this.state.showArticles){
       articles = this.state.articles.map((article, index) =>{
@@ -58,6 +41,7 @@ class App extends Component {
           key={article.id}
           />);
       });
+      buttonStyles.push(styles.red);
     }
 
     //let articleStyles = ['OrangeArticles','OneArticle'].join(' '); //łączenie elementów tabilcy w jednego stringa oddzielonego spacją
@@ -79,10 +63,9 @@ class App extends Component {
       // //inny sposób tworzenia zawartości komponentu
       // React.createElement('div', null, React.createElement('h1', {className: 'Red-color'}, 'Hello, I am react App')) //typ, obiekt,potomek rodzica
         <div className="App">
-          <StyledButton 
-            altButton={this.state.showArticles}
+          <button className={buttonStyles.join(' ')}
             onClick={this.toggleArticlesHandler}>
-            Toggle articles</StyledButton>
+            Toggle articles</button>
           <div className={articleStyles.join(' ')}>
             {articles}
           </div>

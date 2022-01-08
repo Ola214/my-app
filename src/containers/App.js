@@ -5,6 +5,25 @@ import Header from '../components/Header/Header';
 
 class App extends Component {
 
+  //po metodzie constrctor i getDerived.. jest wywoływana funcja render
+
+  constructor(props){
+    console.log("constructor");
+    super(props);
+  }
+
+  //
+  static getDerivedStateFromProps(props, state){
+    console.log("getDerivedStateFromProps")
+    return state;
+  }
+
+  componentDidMount() {
+    //puszczanie zapytań http itp.
+    //nie aktualizuj tutaj state synchronicznie
+    console.log("componentDidMount");
+  }
+
   state = {
     articles: [
       {id: 'ssdw12', title: "title1", content: "This is content 1"},
@@ -27,6 +46,7 @@ class App extends Component {
   }
 
   render() {
+    console.log("render");
 
     let articles = null;
     if(this.state.showArticles) {
@@ -35,6 +55,7 @@ class App extends Component {
 
     //kod jsx
     return (
+        
         <div className="App">
           <Header showArticles={this.state.showArticles} toggleArticles={this.toggleArticlesHandler}/>
           {articles}

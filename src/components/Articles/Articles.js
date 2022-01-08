@@ -2,6 +2,7 @@ import React from "react";
 import Article from './Article/Article';
 
 const articles = props => {
+    console.log("articles");
 
     const articleStyles = [];
 

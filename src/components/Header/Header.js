@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Header.module.css';
 
-const header = props => {
+const Header = props => {
+
+    //po każdym renderowaniu komponentu
+    useEffect(() => {
+        console.log("Header useEffect");
+    });
+
 
     let buttonStyles = [styles.toggleButton];
 
@@ -20,4 +26,4 @@ const header = props => {
     
 }
 
-export default header;
+export default Header;

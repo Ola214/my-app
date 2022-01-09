@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Articles from '../components/Articles/Articles';
 import Header from '../components/Header/Header';
+import Links from '../components/Links/Links';
 
 class App extends Component {
 
@@ -83,6 +84,7 @@ class App extends Component {
           {seconds}
           <Header showArticles={this.state.showArticles} toggleArticles={this.toggleArticlesHandler}/>
           {articles}
+          <Links />
         </div>
     );
   }

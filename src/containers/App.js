@@ -18,9 +18,8 @@ class App extends Component {
   componentDidMount(){
 
    axios.get('http://dummy.restapiexample.com/api/v1/employees', null).then(response => {
-    //const firstTenEmployees = response.data.slice(0,10);
+    const firstTenEmployees = response.data.slice(0,10);
      
-    const firstTenEmployees = response.data;
     this.setState({employees: firstTenEmployees});
    });
 
@@ -36,7 +35,43 @@ class App extends Component {
     );
   }
 
+saveEmployeeHandler = () => {
 
+  const employeeToSave = {
+    name: "Maria123",
+    salary: 4500,
+    age: 25
+  }
+
+  axios.post('http://dummy.restapiexample.com/api/v1/create',employeeToSave).then(response => {
+    console.log(response);
+  });
+
+}
+
+deleteEmployeeHandler = () => {
+  const id = 2;
+  axios.delete('http://dummy.restapiexample.com/api/v1/delete/'+id).then(
+    response => {
+      console.log(response);
+    }
+  );
+}
+
+updateEmployeeHandler = () => {
+  const id = 2;
+  const employeeToUpdate = {
+    name:"test1",
+    salary:"1123",
+    age:"23"};
+
+    axios.put('http://dummy.restapiexample.com/api/v1/update/' + id, employeeToUpdate).then(
+      response => {
+        console.log(response);
+      }
+    );
+}
+ 	
 
   render() {
 
@@ -56,6 +91,9 @@ class App extends Component {
         {selectedEmployee}
         <h1>Employees</h1>
         <Employees employees={this.state.employees} showSelectedEmployee={this.showSelectedEmployeeHandler} />
+        <button onClick={this.saveEmployeeHandler} className="UpdateButton">Save Employee</button>
+        <button onClick={this.deleteEmployeeHandler} className="UpdateButton">Delete Employee</button>
+        <button onClick={this.updateEmployeeHandler} className="UpdateButton">Update Employee</button>
       </div>
 
     );

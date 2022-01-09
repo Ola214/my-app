@@ -2,7 +2,7 @@
     color: violet;
 }
 
-.violet:hover{
+.violet:hover {
     color: darkviolet;
 }
 
@@ -14,13 +14,10 @@
     padding: 12px;
     text-align: center;
     margin-bottom: 10px;
-
-
 }
 
 @media (min-width: 900px) {
     .article {
         width: 630px;
     }
-    
 }

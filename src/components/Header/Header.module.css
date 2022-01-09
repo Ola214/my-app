@@ -1,4 +1,4 @@
-.toggleButton {
+.toggleButton{
     background-color: white;
     border: 2px solid #326647;
     color: black;
@@ -11,15 +11,15 @@
     transition-duration: 0.4s;
 }
 
-.toggleButton:hover {
+.toggleButton:hover{
     background-color: #326647;
     color: white;
 }
 
-.toggleButton.red {
+.toggleButton.red{
     border: 2px solid red;
 }
 
-.toggleButton.red:hover {
+.toggleButton.red:hover{
     background-color: red;
 }

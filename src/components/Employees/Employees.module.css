@@ -1,4 +1,4 @@
-.Employees {
+.Employees{
     display: flex;
     flex-direction: column;
 }

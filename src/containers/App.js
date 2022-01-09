@@ -14,7 +14,8 @@ class App extends Component {
       {id: 'ssddw12', title: "title4", content: "This is content 3"}
     ],
     showArticles: false,
-    showSeconds: false
+    showSeconds: false,
+    counter: 0
   }
 
   //po metodzie constrctor i getDerived.. jest wywoływana funcja render
@@ -61,8 +62,16 @@ class App extends Component {
     this.setState({articles: articles});
   }
 
+  countHandler = () => {
+    let i;
+    for(i=0; i<20; i++) {
+      this.setState((prevState, props) => ({counter: this.state.counter + 1})); //wywoła się po wyrenderowaniu state
+    }
+  }
+
   render() {
     console.log("App render");
+    console.log("Counter: " + this.state.counter);
 
     let articles = null;
     let seconds = null;
@@ -80,14 +89,17 @@ class App extends Component {
     //kod jsx
     return (
         <div className="App">
+          <button onClick={this.countHandler}>Toggle seconds</button><br />
           <button onClick={this.toggleSecondsHandler}>Toggle seconds</button>
           {seconds}
-          <Header showArticles={this.state.showArticles} toggleArticles={this.toggleArticlesHandler}/>
+          <Header showArticles={this.state.showArticles} toggleArticles={this.toggleArticlesHandler} year={1970}/>
           {articles}
           <Links />
         </div>
     );
   }
 }
+
+//npm install --save prop-types
 
 export default App;
